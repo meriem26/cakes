@@ -1,0 +1,11 @@
+.card-info {
+  border: 1px solid green;
+  padding: 10px;
+  display: inline-block;
+  width: 30%;
+}
+
+.card-info img {
+  width: 50%;
+  height: auto;
+}
