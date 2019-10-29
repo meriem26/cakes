@@ -27,14 +27,18 @@ class CakesList extends React.Component {
 
     return (
       <div>
-        <div>
-          <h1>Cakes List</h1>
-          <ul>
-            {cakes.map((cake, index) => {
-              return <CardInfo key={index} cake={cake} />;
-            })}
-          </ul>
-        </div>
+        {error ? (
+          <h1>You have an Error </h1>
+        ) : (
+          <div>
+            <h1>Cakes List</h1>
+            <ul>
+              {cakes.map((cake, index) => {
+                return <CardInfo key={index} cake={cake} />;
+              })}
+            </ul>
+          </div>
+        )}
       </div>
     );
   }
