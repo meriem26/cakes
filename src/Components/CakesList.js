@@ -1,6 +1,6 @@
 import React from "react";
 import CardInfo from "./CardInfo";
-import { fetchCakesList } from "../API/api";
+import { fetchCakesList } from "../API/index";
 class CakesList extends React.Component {
   state = {
     cakes: [],
@@ -9,10 +9,9 @@ class CakesList extends React.Component {
 
   async componentDidMount() {
     try {
-      const res = await fetchCakesList;
-      const data = await res.json();
+      const cakes = await fetchCakesList();
       this.setState({
-        cakes: data
+        cakes
       });
     } catch (err) {
       console.error(err);
