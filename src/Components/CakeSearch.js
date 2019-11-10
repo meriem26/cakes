@@ -14,7 +14,7 @@ const CakeSearch = props => {
 
 	return (
 		<div>
-			<input type="text" onChange={doSearch} placeholder="Search..." />
+			<input data-qa="searchInput" type="text" onChange={doSearch} placeholder="Search..." />
 		</div>
 	);
 };

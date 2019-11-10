@@ -39,9 +39,9 @@ class CakesList extends React.Component {
 					<h1>You have an Error </h1>
 				) : (
 					<div>
-						<h1>Cakes List</h1>
+						<h1 data-qa="title">Cakes List</h1>
 						<CakeSearch cakes={cakes} updateResult={this.displayCakeList} />
-						<ul>
+						<ul data-qa="cakesList">
 							{filterCakeList.map((cake, index) => {
 								return <CardInfo key={index} cake={cake} />;
 							})}
