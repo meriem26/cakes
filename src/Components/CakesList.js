@@ -1,7 +1,7 @@
 import React from 'react';
 import CardInfo from './CardInfo';
 import { fetchCakesList } from '../API/index';
-//import CakesSearch from './CakesSearch';
+import CakeSearch from './CakeSearch';
 class CakesList extends React.Component {
 	state = {
 		cakes: [],
@@ -25,23 +25,14 @@ class CakesList extends React.Component {
 			});
 		}
 	}
-
-	doSearch = e => {
-		const { cakes = [] } = this.state;
-		const { value } = e.target;
-
-		const filterCakeList = cakes.filter(cake => {
-			const { title = '' } = cake;
-			return title.toLowerCase().includes(value);
-		});
-
+	displayCakeList = filterCakeList => {
 		this.setState({
 			filterCakeList,
 		});
 	};
 
 	render() {
-		const { filterCakeList, error } = this.state;
+		const { filterCakeList, error, cakes } = this.state;
 		return (
 			<div>
 				{error ? (
@@ -49,8 +40,7 @@ class CakesList extends React.Component {
 				) : (
 					<div>
 						<h1>Cakes List</h1>
-						{/* <CakesSearch value={this.state.cakeSearch} handleChange={this.doSearch} /> */}
-						<input type="text" onChange={this.doSearch} placeholder="Search..." />
+						<CakeSearch cakes={cakes} updateResult={this.displayCakeList} />
 						<ul>
 							{filterCakeList.map((cake, index) => {
 								return <CardInfo key={index} cake={cake} />;
